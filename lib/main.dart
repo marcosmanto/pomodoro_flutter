@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:pomodoro_flutter/store/counter.store.dart';
+import 'package:pomodoro_flutter/pages/pomodoro.dart';
+//import 'package:flutter_mobx/flutter_mobx.dart';
+//import 'package:pomodoro_flutter/store/counter.store.dart';
 
-final store = CounterStore();
-
+//final store = CounterStore();
 void main() {
   runApp(const MyApp());
 }
@@ -18,12 +18,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: 'Counter App using MobX'),
+      home: const Pomodoro(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
+/*class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.title});
 
   final String title;
@@ -57,4 +57,4 @@ class HomePage extends StatelessWidget {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}
+}*/
