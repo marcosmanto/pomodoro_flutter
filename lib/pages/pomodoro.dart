@@ -8,10 +8,15 @@ class Pomodoro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: const [
-          Text('Pomodoro'),
-          TimeEntry(title: 'Trabalho', value: 25),
-          TimeEntry(title: 'Descanso', value: 5),
+        children: [
+          const Text('Pomodoro'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              TimeEntry(title: 'Trabalho', value: 25),
+              TimeEntry(title: 'Descanso', value: 5),
+            ],
+          )
         ],
       ),
     );
