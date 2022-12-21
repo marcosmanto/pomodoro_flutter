@@ -65,7 +65,7 @@ abstract class PomodoroBase with Store {
 
   @action
   void decrementWorkTime() {
-    workTime--;
+    if (workTime > 0) workTime--;
     if (isWorking()) restart();
   }
 
@@ -77,7 +77,7 @@ abstract class PomodoroBase with Store {
 
   @action
   void decrementRestTime() {
-    restTime--;
+    if (restTime > 0) restTime--;
     if (isResting()) restart();
   }
 
