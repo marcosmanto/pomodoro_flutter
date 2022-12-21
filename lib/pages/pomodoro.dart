@@ -31,7 +31,9 @@ class Pomodoro extends StatelessWidget {
                         : store.incrementWorkTime,
                     dec: store.started && store.isWorking()
                         ? null
-                        : store.decrementWorkTime,
+                        : store.workTime > 0
+                            ? store.decrementWorkTime
+                            : null,
                   ),
                   TimeEntry(
                     title: 'Descanso',
@@ -41,7 +43,9 @@ class Pomodoro extends StatelessWidget {
                         : store.incrementRestTime,
                     dec: store.started && store.isResting()
                         ? null
-                        : store.decrementRestTime,
+                        : store.restTime > 0
+                            ? store.decrementRestTime
+                            : null,
                   ),
                 ],
               ),
