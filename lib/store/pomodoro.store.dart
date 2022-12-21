@@ -32,7 +32,7 @@ abstract class PomodoroBase with Store {
   @action
   void start() {
     started = true;
-    chronometer = Timer.periodic(Duration(milliseconds: 100), (timer) {
+    chronometer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (minutes == 0 && seconds == 0) {
         _swapIntervalType();
       } else if (seconds == 0) {
@@ -53,26 +53,32 @@ abstract class PomodoroBase with Store {
   @action
   void restart() {
     stop();
+    minutes = isWorking() ? workTime : restTime;
+    seconds = 0;
   }
 
   @action
   void incrementWorkTime() {
     workTime++;
+    if (isWorking()) restart();
   }
 
   @action
   void decrementWorkTime() {
     workTime--;
+    if (isWorking()) restart();
   }
 
   @action
   void incrementRestTime() {
     restTime++;
+    if (isResting()) restart();
   }
 
   @action
   void decrementRestTime() {
     restTime--;
+    if (isResting()) restart();
   }
 
   bool isWorking() {
